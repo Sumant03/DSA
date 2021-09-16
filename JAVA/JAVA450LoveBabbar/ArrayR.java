@@ -1,31 +1,31 @@
-import java.util.*;
-class ArrayR {
-  public static void main(String[] args){
-     Scanner scn=new Scanner(System.in);
-    System.out.println("Pls enter total no. be values");
-     int n=scn.nextInt();
-     int arr[]=new int[n];
-  System.out.println("Hi im asking to print values");
-     for(int i=0;i<arr.length;i++){
-         arr[i]=scn.nextInt();
+// import java.util.*;
+// class ArrayR {
+//   public static void main(String[] args){
+//      Scanner scn=new Scanner(System.in);
+//     System.out.println("Pls enter total no. be values");
+//      int n=scn.nextInt();
+//      int arr[]=new int[n];
+//   System.out.println("Hi im asking to print values");
+//      for(int i=0;i<arr.length;i++){
+//          arr[i]=scn.nextInt();
 
-     }
-     int temp=0;
-     int lo=0,hi=arr.length-1;
-     while(lo<=hi){
-         temp=arr[lo];
-         arr[lo]=arr[hi];
-         arr[hi]=temp;
-     }
-   display(arr);
-    scn.close();
-  }  
-  public static void display(int arr[]){
-    for(int i=0;i<arr.length;i++){
-        System.out.println(arr[i]);
-       }
-  }
-}
+//      }
+//      int temp=0;
+//      int lo=0,hi=arr.length-1;
+//      while(lo<=hi){
+//          temp=arr[lo];
+//          arr[lo]=arr[hi];
+//          arr[hi]=temp;
+//      }
+//    display(arr);
+//     scn.close();
+//   }  
+//   public static void display(int arr[]){
+//     for(int i=0;i<arr.length;i++){
+//         System.out.println(arr[i]);
+//        }
+//   }
+// }
 // public class ArrayR {
      
 //     /* Function to reverse arr[] from
