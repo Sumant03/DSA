@@ -1,5 +1,4 @@
 import java.util.*;
-
 class isCyclePresent {
     public static Scanner scn = new Scanner(System.in);
 
