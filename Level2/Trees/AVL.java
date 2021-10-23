@@ -66,8 +66,10 @@ public class AVL {
         }
 
     }
-    public static Node max(Node node){
-        if(node)
+    public static int max(Node node){
+        if(node.right!=null){
+       
+        }
     }
     public static Node solveLL(Node node){
         Node lc=node.left; //left child of node
@@ -84,12 +86,7 @@ public class AVL {
      node.right=temp;
      return rc;
     }
-    // public static Node leftRotation(Node node){
 
-    // }
-    // public static Node rightRotation(Node node){
-
-    }
 public static void checkAndSolve(Node node){
     if(node.bf>1||node.bf<-1){
        
