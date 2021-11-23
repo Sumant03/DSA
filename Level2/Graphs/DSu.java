@@ -50,7 +50,9 @@
 //     if(par[val]==val){
 //         return val;
 //     }else{
-//         return find(par[val]);
+//         int v =find(par[val]);
+            //par[val]=v;
+          //  return v;
 //     }
 //    }
 
