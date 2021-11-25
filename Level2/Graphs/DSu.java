@@ -1,5 +1,6 @@
-// BruteForceApproach for DSU
-
+//Added both optimisations
+//1.for  path compression
+//2.for doing union 
 
 
 
@@ -7,6 +8,7 @@
 
 // public class Main{
 //        static int[] par;
+          //  static int[] rank;
 //     public static void main(String args[]){
 //         int[][] rel={{1,2},{4,5},{2,6},{3,7},{9,10},{6,8},{3,5},{10,11}};
 //         int n=11;
@@ -17,6 +19,7 @@
 //         //filling parent array using that number itself ;
 //         for(int i=1;i<=n;i++){
 //                 par[i]=i;
+                  //  rank[i]=0;
 //         }
 
 
@@ -43,7 +46,20 @@
 //      int lx=find(x);
 //      int ly=find(y);
 
-//      par[ly]=lx;
+////merging possible
+
+        // if(lx!=ly){
+        //   if(rank[lx]<rank[ly]){
+        //     par[lx]=ly;
+        //   }else if(rank[lx]>rank[ly]){
+        //     par[ly]=lx;
+        //   }else{
+        //     par[lx]=ly;
+        //     rank[ly]++;
+        //   }         
+ 
+
+        // }
 //   }
 //    public static int find(int val){
           
