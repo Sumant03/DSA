@@ -85,3 +85,28 @@ begin BubbleSort(list)
    
 end BubbleSort
 
+
+
+
+
+
+
+
+
+Dijkstra Algorithm 
+
+
+Dijkstra algorithm is a single-source shortest path algorithm. Here, single-source means that only one source is given, and we have to find the shortest path from the source to all the nodes.
+
+Let's understand the working of Dijkstra's algorithm. Consider the below graph.
+
+Dijkstra Algorithm
+First, we have to consider any vertex as a source vertex. Suppose we consider vertex 0 as a source vertex.
+
+Here we assume that 0 as a source vertex, and distance to all the other vertices is infinity. Initially, we do not know the distances. First, we will find out the vertices which are directly connected to the vertex 0. As we can observe in the above graph that two vertices are directly connected to vertex 0.
+
+
+
+
+
+
