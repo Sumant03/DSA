@@ -1,0 +1,112 @@
+Heap Sort Algorithm
+
+HeapSort(arr)  
+BuildMaxHeap(arr)  
+for i = length(arr) to 2  
+    swap arr[1] with arr[i]  
+        heap_size[arr] = heap_size[arr] ? 1  
+        MaxHeapify(arr,1)  
+End  
+BuildMaxHeap(arr)
+
+
+
+
+
+BuildMaxHeap(arr)  
+    heap_size(arr) = length(arr)  
+    for i = length(arr)/2 to 1  
+MaxHeapify(arr,i)  
+End  
+MaxHeapify(arr,i)
+
+
+
+
+MaxHeapify(arr,i)  
+L = left(i)  
+R = right(i)  
+if L ? heap_size[arr] and arr[L] > arr[i]  
+largest = L  
+else  
+largest = i  
+if R ? heap_size[arr] and arr[R] > arr[largest]  
+largest = R  
+if larg
+
+
+est != i  
+swap arr[i] with arr[largest]  
+MaxHeapify(arr,largest)  
+End   
+
+
+
+
+
+
+
+
+Selection Sort Algorithm
+
+
+static void selection(int[] arr)  
+{  
+    int i, j, small;  
+    int n = arr.Length;  
+    for (i = 0; i < n-1; i++)    // One by one move boundary of unsorted subarray  
+    {  
+        small = i; //minimum element in unsorted array  
+          
+        for (j = i+1; j < n; j++)  
+        if (arr[j] < arr[small])  
+            small = j;  
+// Swap the minimum element with the first element  
+    int temp = arr[small];  
+    arr[small] = arr[i];  
+    arr[i] = temp;  
+    }  
+}  
+
+
+
+
+ Bubble Sort 
+
+begin BubbleSort(list)
+
+   for all elements of list
+      if list[i] > list[i+1]
+         swap(list[i], list[i+1])
+      end if
+   end for
+   
+   return list
+   
+end BubbleSort
+
+
+
+
+
+
+
+
+
+Dijkstra Algorithm 
+
+
+Dijkstra algorithm is a single-source shortest path algorithm. Here, single-source means that only one source is given, and we have to find the shortest path from the source to all the nodes.
+
+Let's understand the working of Dijkstra's algorithm. Consider the below graph.
+
+Dijkstra Algorithm
+First, we have to consider any vertex as a source vertex. Suppose we consider vertex 0 as a source vertex.
+
+Here we assume that 0 as a source vertex, and distance to all the other vertices is infinity. Initially, we do not know the distances. First, we will find out the vertices which are directly connected to the vertex 0. As we can observe in the above graph that two vertices are directly connected to vertex 0.
+
+
+
+
+
+
