@@ -8,7 +8,7 @@ class Solution {
         
         while(j>=i){
             
-            if(nums[i]*nums[i]<nums[j]*nums[j]){
+            if(Math.abs(nums[j]) > Math.abs(nums[i])){
                 ans[k]=nums[j]*nums[j];
                 j--;
             }else{
