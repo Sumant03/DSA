@@ -13,24 +13,22 @@ class Solution {
          if(head==null){
            return null;
        }
-        ListNode dh=new ListNode(0);
+        ListNode dh=new ListNode(Integer.MAX_VALUE);
         ListNode dt=dh;
         
         ListNode temp=head;
-        dt.next=head;
-        dt=dt.next;
-        temp=temp.next;
-        
+
         while(temp!=null){
-            System.out.println("[1,1]");
-            if(temp.val!=dt.val){
-                ListNode node=new ListNode(temp.val);
-                dt.next=node;
+        
+            if(dt.val==temp.val){
+                temp=temp.next;
+            }else{
+               dt.next=temp;
                 dt=dt.next;
-                System.out.println("[1,1]again");
+                temp=temp.next;
             }
             
-            temp=temp.next;
+            
         }
         dt.next=null;
         return dh.next;
