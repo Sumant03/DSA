@@ -14,10 +14,6 @@ class Solution {
         if(head==null||head.next==null){
             return head;
         }
-        
-        ListNode dh=new ListNode(-1);
-        ListNode dt=dh;
-        
         ListNode temp=head;
         ListNode p1=head;
         ListNode p2=head;
