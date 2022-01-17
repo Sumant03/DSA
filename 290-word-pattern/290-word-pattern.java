@@ -1,38 +1,29 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-           
         
+        HashMap<Character,String> map=new HashMap<>();
         
-        HashMap<String,Character> map=new HashMap<>();
+        String[] str =s.split(" ");
         
-        String[] str = null;  
-
-        str = s.split(" "); 
-        if(str.length>pattern.length()||str.length<pattern.length()){
-            return false;
-        }
-        boolean[] isPresent=new boolean[26]; 
-        
-        for(int i=0;i<str.length;i++){
-          
-            char ch=pattern.charAt(i);
-            int val=ch-'0';
-            if(!map.containsKey(str[i])&&isPresent[val-49]==false){
-                isPresent[val-49]=true;
-                map.put(str[i],ch);
+        if(str.length!=pattern.length()){
+                return false;
             }
-        }
-        String b="";
+        
         for(int i=0;i<str.length;i++){
-            char c=map.getOrDefault(str[i],' ');
-            b=b+c;
-        }
-        
-        if(b.equals(pattern)==true){
-            return true;
-        }else{
-            return false;
-        }
-        
+            
+            String gv=map.get(pattern.charAt(i));
+            
+            if(gv!=null){
+                if(!gv.equals(str[i])){
+                    return false;
+                }
+            }else if(!map.containsValue(str[i])){
+                map.put(pattern.charAt(i),str[i]);
+            }else{
+                return false;
+            }
+            
+           }
+                return true;
     }
 }
