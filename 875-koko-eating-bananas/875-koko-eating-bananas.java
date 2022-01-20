@@ -1,6 +1,7 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int H) {
-        int low = 1, high = 1000000000, k = 0;
+        int low = 1, k = 0;
+        int high=getMax(piles);
         while (low <= high) {
             k = (low + high) / 2;
             int h = 0;
@@ -14,6 +15,19 @@ class Solution {
         return low;
 
 
+    }
+    
+    public static int getMax(int[] arr){
+        
+        int max=Integer.MIN_VALUE;
+        
+        for(int i=0;i<arr.length;i++){
+            
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        return max;
     }
     
 }
