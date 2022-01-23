@@ -1,27 +1,31 @@
 class Solution {
+   List<Integer> ans=new ArrayList<>();
     public List<Integer> sequentialDigits(int low, int high) {
-        List<Integer> ans=new ArrayList<>();
         
         for(int i=1;i<=9;i++){
-            int num=i;
-            for(int j=i+1;j<=9;j++){
-                
-                num=num*10+j;
-                
-                if(num>high){
-                    break;
-                }
-                if(num>=low&&num<=high){
-                    ans.add(num);
-                }
+            dfs(low,high,i,i+1);
+        }      
             
-            }
-            
-        }
         
         Collections.sort(ans);
         
         return ans;
         
     }
+        
+        
+     public void dfs(int low,int high,int num,int i){
+ 
+        if(num>high||i>10){
+            return;
+        }
+        if(num>=low&&num<=high){
+            ans.add(num);
+        }
+
+        dfs(low,high,num*10+i,i+1);
+
+
+            }
+        
 }
