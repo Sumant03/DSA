@@ -3,28 +3,18 @@ class Solution {
         
         int idx1=0;
         int idx2=0;
-        for(int i=1;i<arr.length;i++){
-         
-
-            
-            if(arr[i]>arr[i-1]){
-                idx1++;
-            }else{
-                break;
-            }
-        }
+        int i=1;
+    while(i<arr.length&&i+1<arr.length&&arr[i]>arr[i-1]){
+             idx1++;
+             i++;
+       }
         System.out.println(arr[idx1]);
-
-        for(int i=arr.length-2;i>=0;i--){
-
-
-
-            
-            if(arr[i]>arr[i+1]){
-                idx2++;
-            }else{
-                break;
-            }
+        
+        
+        int j=arr.length-2;
+        while(j>=0&&arr[j]>arr[j+1]){
+            idx2++;
+            j--;
         }
         System.out.println(arr[idx2]);
         
