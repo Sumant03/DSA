@@ -1,22 +1,22 @@
 class Solution {
     public int dominantIndex(int[] nums) {
-        if(nums.length==1){
-            return 0;
-        }
+        int max=Integer.MIN_VALUE;
+        int idx=0;
         
-       
-        HashMap<Integer,Integer> map=new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            int val=nums[i];
-            map.put(val,i);
-        }
-         Arrays.sort(nums);
-        for(int i=nums.length-2;i>=0;i--){
-            if(nums[nums.length-1]<nums[i]*2){
-                return -1;
+        
+            if(nums[i]>max){
+                max=nums[i];
+                idx=i;
             }
         }
         
-        return map.get(nums[nums.length-1]);
+        for(int i=0;i<nums.length;i++){
+            
+            if(nums[i]>max/2&&nums[i]!=max){
+                return -1;
+            }
+        }
+        return idx;
     }
 }
