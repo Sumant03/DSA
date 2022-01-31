@@ -1,3 +1,4 @@
+//Nice Approach Can be used directly in any Solution 
 class Solution {
     public int findFinalValue(int[] nums, int original) {
        int i = 0;
