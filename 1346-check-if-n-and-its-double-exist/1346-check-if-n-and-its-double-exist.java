@@ -4,23 +4,14 @@ class Solution {
                 
         for(int i=arr.length-1;i>=0;i--){
             int val=arr[i];
-        
-            int fr=ans.getOrDefault(val,0)+1;
-            ans.put(val,fr);
+
+    if(ans.containsKey(val*2)||(val%2==0&&ans.containsKey(val/2))){
+                return true;
+            }
+            ans.put(val,1);
         }
          
-        for(int i=arr.length-1;i>=0;i--){
-            int val=arr[i];
-            
-            if(val==0&&ans.get(val)>1){
-                return true;
-            }
-            
-            if(val!=0&&ans.containsKey(val*2)){
-                return true;
-            }
-            
-        }
+        
         return false;
         
 
