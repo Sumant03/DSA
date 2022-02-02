@@ -1,60 +1,65 @@
 class Trie {
-    public class Node{
+
+    static class Node{
+        Node[] child;
         boolean isEnd;
-        Node[] childs;
+        
         
         Node(){
-            childs=new Node[26];
+            child=new Node[26];
         }
     }
-    final Node root; 
+    final Node root;
     public Trie() {
         root=new Node();
+        
     }
     
     public void insert(String word) {
         Node curr=root;
+        
         for(int i=0;i<word.length();i++){
             char ch=word.charAt(i);
             
-            if(curr.childs[ch-'a']==null){
-                curr.childs[ch-'a']=new Node();
+            if(curr.child[ch-'a']==null){
+                curr.child[ch-'a']=new Node();
             }
-            
-            curr=curr.childs[ch-'a'];
+            curr=curr.child[ch-'a'];
         }
         curr.isEnd=true;
     }
     
     public boolean search(String word) {
         
-        Node curr=root;
+         Node curr=root;
+        
         for(int i=0;i<word.length();i++){
             char ch=word.charAt(i);
             
-            if(curr.childs[ch-'a']==null){
+            if(curr.child[ch-'a']==null){
                 return false;
             }else{
-                curr=curr.childs[ch-'a'];
+             curr=curr.child[ch-'a'];    
             }
             
-        
         }
         return curr.isEnd;
+        
     }
     
-    public boolean startsWith(String prefix) {
+    public boolean startsWith(String word) {
+        
         Node curr=root;
-        for(int i=0;i<prefix.length();i++){
-            char ch=prefix.charAt(i);
+        
+        for(int i=0;i<word.length();i++){
+            char ch=word.charAt(i);
             
-            if(curr.childs[ch-'a']==null){
+            if(curr.child[ch-'a']==null){
                 return false;
             }else{
-                curr=curr.childs[ch-'a'];
+             curr=curr.child[ch-'a'];    
             }
             
-        
         }
         return true;
     }
