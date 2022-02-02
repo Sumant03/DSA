@@ -1,64 +1,56 @@
 class WordDictionary {
 
-    public class Node{
-        Node childs[];
+    static class Node{
+        Node[] child;
         boolean isEnd;
         
         Node(){
-            childs=new Node[26];
-        }
-        
-        public boolean find(String word,int i){
-        if(i==word.length()){
-            return isEnd;
-        }
-        
-        char ch=word.charAt(i);
-        if(ch=='.'){
-            
-            for(Node child:childs){
-                if(child!=null&&child.find(word,i+1)){
-                    return true;
-                }
-                
-            }
-            return false;
-            
-        }else{
-            
-            if(childs[ch-'a']==null){
-                return false;
-            }else{
-                return childs[ch-'a'].find(word,i+1);
-            }
+            child=new Node[26];
         }
     }
-    }
-    final Node root;
+    Node root;
     public WordDictionary() {
         root=new Node();
     }
     
     public void addWord(String word) {
-        
-         Node curr=root;
+        Node curr=root;
         for(int i=0;i<word.length();i++){
             char ch=word.charAt(i);
-           
-            if(curr.childs[ch-'a']==null){
-                curr.childs[ch-'a']=new Node();
+            
+            if(curr.child[ch-'a']==null){
+                curr.child[ch-'a']=new Node();
             }
-            curr=curr.childs[ch-'a'];
+            curr=curr.child[ch-'a'];
         }
         curr.isEnd=true;
         
     }
     
     public boolean search(String word) {
-        return root.find(word,0);
+        return helper(root,word,0);
     }
-    
-    
+    public boolean helper(Node curr,String word,int idx){
+        if(idx==word.length()){
+            return curr.isEnd;
+        }
+        
+        char ch=word.charAt(idx);
+        
+        if(ch=='.'){
+          for(int i=0;i<26;i++){
+            if(curr.child[i]!=null&&helper(curr.child[i],word,idx+1)==true){
+                return true;
+            }  
+          }    
+        }
+        else{
+            if(curr.child[ch-'a']!=null){
+                return helper(curr.child[ch-'a'],word,idx+1);
+            }
+        }
+        return false;
+    }
 }
 
 /**
