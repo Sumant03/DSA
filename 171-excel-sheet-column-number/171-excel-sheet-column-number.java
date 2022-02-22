@@ -1,5 +1,10 @@
 class Solution {
   public int titleToNumber(String s) {
-        return s.length()==0?0:(s.charAt(s.length()-1)-'A'+1)+26*titleToNumber(s.substring(0, s.length()-1));
+         
+      int sum=0;
+      for(int i=0;i<s.length();i++){
+          sum+=Math.pow(26,i)*((int)s.charAt(s.length()-i-1)-64);
+      }
+      return sum;
     }
 }
