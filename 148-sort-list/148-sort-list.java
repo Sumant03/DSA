@@ -9,71 +9,74 @@
  * }
  */
 class Solution {
-  public ListNode sortList(ListNode head) {
+    public ListNode sortList(ListNode head) {
         return mergeSort(head);
     }
     
-    private ListNode mergeSort(ListNode head) {
-        if(head == null || head.next == null) {
-            return head;
+    public ListNode mergeSort(ListNode node){
+        if(node==null||node.next==null){
+            return node;
         }
         
-        ListNode middleNode = findMiddleNode(head);
-        ListNode nextToMiddleNode = middleNode.next;
+        ListNode mid=midNode(node);
+        ListNode midn=mid.next;
+        mid.next=null;
         
-        middleNode.next = null;
         
-        ListNode leftNode = mergeSort(head);
-        ListNode rightNode = mergeSort(nextToMiddleNode);
+        ListNode left=mergeSort(node);
+        ListNode right=mergeSort(midn);
         
-        return mergeTwoSortedList(leftNode, rightNode);
+        return mergerLinkedList(left,right);
+        
     }
     
-    private ListNode mergeTwoSortedList(ListNode leftNode, ListNode rightNode) {
-        ListNode head = new ListNode(0);
-        ListNode currentNode = head;
+    public ListNode mergerLinkedList(ListNode ln,ListNode rn){
+        ListNode hn=new ListNode(-1);
+        ListNode ht=hn;
         
-        while(leftNode != null && rightNode != null) {
-            if(leftNode.val <= rightNode.val) {
-                currentNode.next = leftNode;
-                leftNode = leftNode.next;
-                currentNode = currentNode.next;
-            } else {
-                currentNode.next = rightNode;
-                rightNode = rightNode.next;
-                currentNode = currentNode.next;
+        while(ln!=null&&rn!=null){
+            
+            if(ln.val<=rn.val){
+                ht.next=ln;
+                ht=ht.next;
+                ln=ln.next;
+            }else{
+                 ht.next=rn;
+                ht=ht.next;
+                rn=rn.next;
             }
         }
         
-        while(leftNode != null) {
-            currentNode.next = leftNode;
-            leftNode = leftNode.next;
-            currentNode = currentNode.next;
+        while(ln!=null){
+            ht.next=ln;
+            ht=ht.next;
+            ln=ln.next;
         }
         
-        while(rightNode != null) {
-            currentNode.next = rightNode;
-            rightNode = rightNode.next;
-            currentNode = currentNode.next;
+           while(rn!=null){
+            ht.next=rn;
+            ht=ht.next;
+            rn=rn.next;
         }
         
-        return head.next;
+        
+        return hn.next;
     }
     
-    private ListNode findMiddleNode(ListNode head) {
-        if(head == null) {
-            return head;
+    public ListNode midNode(ListNode node){
+        if(node==null){
+            return node;
         }
         
-        ListNode fastPtr = head;
-        ListNode slowPtr = head;
+        ListNode sl=node;
+        ListNode ft=node;
         
-        while(fastPtr.next != null && fastPtr.next.next != null) {
-            slowPtr = slowPtr.next;
-            fastPtr = fastPtr.next.next;
+        while(ft.next!=null&&ft.next.next!=null){
+            sl=sl.next;
+            ft=ft.next.next;
         }
         
-        return slowPtr;
+        return sl;
     }
     
 }
