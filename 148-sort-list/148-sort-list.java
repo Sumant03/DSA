@@ -9,7 +9,7 @@
  * }
  */
 class Solution {
-    public ListNode sortList(ListNode head) {
+  public ListNode sortList(ListNode head) {
         return mergeSort(head);
     }
     
@@ -75,4 +75,5 @@ class Solution {
         
         return slowPtr;
     }
+    
 }
