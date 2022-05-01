@@ -1,15 +1,20 @@
 class Solution {
     public List<List<Integer>> generate(int rows) {
       List<List<Integer>> ans=new ArrayList<>();
-      List<Integer> row; 
+      List<Integer> row,pre=null; 
         
     for(int i=0;i<rows;i++){
-           int val=1;
            row=new ArrayList<>(); 
        for(int j=0;j<=i;j++){
-            row.add(val);
-           val=val*(i-j)/(j+1);    
+           
+           if(j==0||j==i){
+               row.add(1);
+           }else{
+               row.add(pre.get(j-1)+pre.get(j));
+           }    
+           
         }
+            pre=row;
             ans.add(row);
    
         }
