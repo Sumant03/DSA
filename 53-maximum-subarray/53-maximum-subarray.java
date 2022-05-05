@@ -1,16 +1,20 @@
 class Solution {
     public int maxSubArray(int[] arr) {
-          int csum=arr[0];
+        int csum=arr[0];
         int msum=arr[0];
         
-        for(int i=1;i<arr.length;i++){
-            if(csum>0){
-                csum+=arr[i];
-            }else{
-                csum=arr[i];
+        for(int idx=1;idx<arr.length;idx++){
+            
+            
+            if(csum<0){
+                csum=0;
             }
-            msum=Math.max(msum,csum);
+            csum+=arr[idx];
+            msum=Math.max(csum,msum);
+            
         }
+        
+        
         return msum;
     }
 }
