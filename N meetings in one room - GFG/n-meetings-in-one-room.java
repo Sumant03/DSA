@@ -35,7 +35,7 @@ class GFG {
 class Solution 
 {   
     
-    class meeting {
+    class meeting implements Comparable<meeting>{
     int start;
     int end;
     int pos;
@@ -46,20 +46,18 @@ class Solution
         this.end = end;
         this.pos = pos;
     }
-}
-class meetingComparator implements Comparator<meeting>
-{
-    public int compare(meeting o1, meeting o2) 
+     public int compareTo(meeting o) 
     {
-        if (o1.end < o2.end)
+        if (this.end < o.end)
             return -1;
-        else if (o1.end > o2.end)
+        else if (this.end > o.end)
             return 1;
-        else if(o1.pos < o2.pos)
+        else if(this.pos < o.pos)
             return -1;
         return 1; 
     }
 }
+
     //Function to find the maximum number of meetings that can
     //be performed in a meeting room.
     public int maxMeetings(int start[], int end[], int n)
@@ -70,8 +68,7 @@ class meetingComparator implements Comparator<meeting>
         for(int i = 0; i < start.length; i++)
             meet.add(new meeting(start[i], end[i], i+1));
         
-        meetingComparator mc = new meetingComparator(); 
-        Collections.sort(meet, mc); 
+        Collections.sort(meet); 
         int val=1;
         
         int limit = meet.get(0).end; 
