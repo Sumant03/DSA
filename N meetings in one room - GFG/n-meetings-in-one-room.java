@@ -38,13 +38,12 @@ class Solution
     class meeting implements Comparable<meeting>{
     int start;
     int end;
-    int pos;
      
-    meeting(int start, int end, int pos)
+    meeting(int start, int end)
     {
         this.start = start;
         this.end = end;
-        this.pos = pos;
+
     }
      public int compareTo(meeting o) 
     {
@@ -52,9 +51,8 @@ class Solution
             return -1;
         else if (this.end > o.end)
             return 1;
-        else if(this.pos < o.pos)
-            return -1;
-        return 1; 
+        return 0;    
+     
     }
 }
 
@@ -66,7 +64,7 @@ class Solution
        ArrayList<meeting> meet = new ArrayList<>();
         
         for(int i = 0; i < start.length; i++)
-            meet.add(new meeting(start[i], end[i], i+1));
+            meet.add(new meeting(start[i], end[i]));
         
         Collections.sort(meet); 
         int val=1;
